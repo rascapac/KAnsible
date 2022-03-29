@@ -4,7 +4,7 @@
     src: "{{ item }}"
     dest: '/root/Pictures'
   with_fileglob:
-    - "imgs/1.png"
+    - "imgs/1.jpg"
 
 #################### Set the picture
 - name: Set the background
