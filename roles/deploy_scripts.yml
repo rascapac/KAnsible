@@ -1,6 +1,6 @@
 
 - name: Updating
-  shell: apt-get update
+  shell: apt update
 
 - name: Installing Essentials Tools
   script: scripts/install-essentials.sh
@@ -9,7 +9,7 @@
 - name: Clone and install traitor
   script: scripts/install-traitor.sh
   ignore_errors: True
-  
+
 - name: Install bettercap
   apt:
     name: bettercap
