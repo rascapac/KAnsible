@@ -34,8 +34,8 @@ if [[ $string2 == *"root"* ]]; then
 fi
 
 # Deploy
-echo 'Updating..'
-bash scripts/update.sh
+#echo 'Updating..'
+#bash scripts/update.sh
 # Install ansible
 echo 'Installing Ansible..'
 bash scripts/install-ansible.sh
