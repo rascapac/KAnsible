@@ -10,10 +10,6 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-
-echo 'This might take over 15 minutes, so curl https://$( cat Starbucks.menu | grep coffee )'
-
-
 sshd='/etc/ssh/sshd_config'
 string1=$(cat $sshd | grep PermitRootLogin )
 string2=$(cat hosts.ini | grep ansible_user=root)
@@ -34,17 +30,18 @@ if [[ $string2 == *"root"* ]]; then
 fi
 
 # Deploy
-#echo 'Updating..'
-#bash scripts/update.sh
-# Install ansible
-echo 'Installing Ansible..'
-bash scripts/install-ansible.sh
-# Start SSH
-echo 'Starting SSH..'
-systemctl start ssh
-# Start deploying
-ansible-playbook deploy_kali.yml -i hosts.ini -e 'ansible_python_interpreter=/usr/bin/python3'
+echo 'Install python-virtualenv and sshpass..'
 
+apt install python-virtualenv sshpass -y
+
+echo 'Configuring Ansible'
+virtualenv ansible
+source ansible/bin/activate
+pip install ansible
+
+echo 'Installation of the tools'
+#ansible-playbook deploy_kali.yml -i hosts.ini 
+ansible -i hosts.ini -m ping http1 --user kali --ask pass
 
 # If you are deplying it with the root user
 if [[ $string2 == *"root"* ]]; then
