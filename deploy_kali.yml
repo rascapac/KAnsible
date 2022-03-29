@@ -1,8 +1,5 @@
 - hosts: kali
-  tasks:
-    # Wallpaper
-    - import_tasks: roles/change_wallpaper.yml
-    
+  tasks:    
     # Install the core packages
     - import_tasks: roles/deploy_core.yml
     
