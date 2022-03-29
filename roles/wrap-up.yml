@@ -3,6 +3,6 @@
   shell: updatedb
   ignore_errors: True
 
-- name: Cleaning
-  shell: apt autoremove -y && apt autoclean && apt clean
-  sudo: true
+#- name: Cleaning
+#  shell: apt autoremove -y && apt autoclean && apt clean
+#  sudo: true
