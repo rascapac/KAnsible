@@ -6,7 +6,7 @@ Ansible playbook to deploy important tools that Kali Linux is missing.
 
 ### How to install locally
 ```sh
-git clone https://github.com/M507/Kali-TX.git
+git clone https://github.com/M507/KAnsible.git
 cd KAnsible
 sudo bash install.sh
 ```
@@ -14,31 +14,7 @@ sudo bash install.sh
 ### Deploys
 - Ansible
 - Docker
-- Empire
-- Dirsearch
-- Aquatone
-- Rpivot
-- Tree
-- Pycharm
-- BruteX
-- BlackWidow
-- Gophish
-- Powershell
-- PowerSploit
-- EvilWinrm
-- QSearchSploit
-- Findsploit
-- Crackmapexec
-- IntruderPayloads
-- Invoke-Obfuscation
-- PayloadsAllTheThings
-- Fuzzdb
-- Big-list-of-naughty-strings
-- RobotsDisallowed
-- SecLists
 - Bettercap
-- Unicorn
-- EvilURL
 
 
 ### Changelog
