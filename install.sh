@@ -31,6 +31,8 @@ fi
 
 # Deploy
 echo 'Install python-virtualenv and sshpass..'
+apt install software-properties-common -y
+
 
 apt install python-virtualenv sshpass -y
 
