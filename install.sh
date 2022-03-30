@@ -31,13 +31,14 @@ fi
 
 # Deploy
 echo 'Configuring Keyboard..'
+mkdir /home/kali/.config/autostart/
 echo -n 'W0Rlc2t0b3AgRW50cnldCkVuY29kaW5nPVVURi04ClZlcnNpb249MC45LjQKVHlwZT1BcHBsaWNhdGlvbgpOYW1lPW1hY2Zya2V5Ym9hcmQKQ29tbWVudD1tYWNmcmtleWJvYXJkCkV4ZWM9c2V0eGtibWFwIC1tb2RlbCBwYzEwNSAtbGF5b3V0IGZyIC12YXJpYW50IG1hYyAtb3B0aW9uIGx2MzpsYWx0X3N3aXRjaCxjb21wb3NlOmx3aW4KT25seVNob3dJbj1YRkNFOwpSdW5Ib29rPTAKU3RhcnR1cE5vdGlmeT1mYWxzZQpUZXJtaW5hbD1mYWxzZQpIaWRkZW49ZmFsc2U=' | base64 -d > /home/kali/.config/autostart/macfr.desktop
 echo -n 'W0Rlc2t0b3AgRW50cnldCkVuY29kaW5nPVVURi04ClZlcnNpb249MC45LjQKVHlwZT1BcHBsaWNhdGlvbgpOYW1lPW1hY2ZyY2hldgpDb21tZW50PW1hY2ZyY2hldgpFeGVjPXhtb2RtYXAgLWUgJ2tleWNvZGUgOTQ9YXQgbnVtYmVyc2lnbiBZZGlhZXJlc2lzIHBlcmlvZGNlbnRlcmVkJyAtZSAna2V5Y29kZSA0OT1sZXNzIGdyZWF0ZXIgVm9pZFN5bWJvbCBWb2lkU3ltYm9sJwpPbmx5U2hvd0luPVhGQ0U7ClJ1bkhvb2s9MApTdGFydHVwTm90aWZ5PWZhbHNlClRlcm1pbmFsPWZhbHNlCkhpZGRlbj1mYWxzZQ==' | base64 -d > /home/kali/.config/autostart/macfrchev.desktop
 
 
 echo 'Install python-virtualenv and sshpass..'
 apt update
-apt install libwacom-common
+apt install libwacom-common -y
 #apt upgrade
 apt install software-properties-common -y
 sudo apt install python3-pip -y
@@ -45,13 +46,15 @@ pip3 install virtualenv
 apt install sshpass -y
 
 echo 'Configuring Ansible'
-virtualenv ansible
-source ansible/bin/activate
-pip install ansible
+apt install ansible-core -y
+#virtualenv ansible
+#source ansible/bin/activate
+#pip install ansible
 
 echo 'Installation of the tools'
 #ansible-playbook deploy_kali.yml -i hosts.ini 
-ansible -i hosts.ini -m ping http1 --user kali --ask pass
+ansible-playbook -i hosts.ini -m ping kali --user kali --ask pass
+
 
 # If you are deplying it with the root user
 if [[ $string2 == *"root"* ]]; then
