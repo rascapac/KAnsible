@@ -36,7 +36,9 @@ echo -n 'W0Rlc2t0b3AgRW50cnldCkVuY29kaW5nPVVURi04ClZlcnNpb249MC45LjQKVHlwZT1BcHB
 
 
 echo 'Install python-virtualenv and sshpass..'
-apt update && apt upgrade
+apt update
+apt libwacom-common
+apt upgrade
 apt install software-properties-common -y
 sudo apt install python3-pip -y
 pip3 install virtualenv
