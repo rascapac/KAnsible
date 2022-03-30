@@ -32,9 +32,9 @@ fi
 # Deploy
 echo 'Install python-virtualenv and sshpass..'
 apt install software-properties-common -y
-
-
-apt install python-virtualenv sshpass -y
+sudo apt install python3-pip -y
+pip3 install virtualenv
+apt install sshpass -y
 
 echo 'Configuring Ansible'
 virtualenv ansible
