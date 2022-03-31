@@ -12,7 +12,7 @@ fi
 
 sshd='/etc/ssh/sshd_config'
 string1=$(cat $sshd | grep PermitRootLogin )
-string2=$(cat hosts.ini | grep ansible_user=root)
+string2=$(cat hosts.ini | grep ansible_user=kali)
 
 # If you are deplying it with the root user
 if [[ $string2 == *"root"* ]]; then
