@@ -52,9 +52,8 @@ virtualenv ansible
 source ansible/bin/activate
 pip install ansible
 
-#echo 'Installation of the tools'
-#ansible-playbook deploy_kali.yml -i hosts.ini 
-#ansible-playbook -i hosts.ini -m ping kali --user kali --ask pass
+echo 'Installation of the tools'
+ansible-playbook deploy_kali.yml 
 
 
 # If you are deplying it with the root user

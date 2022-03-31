@@ -1,4 +1,4 @@
-- hosts: kali
+- hosts: 127.0.0.1
   tasks:    
     # Install the core packages
     - import_tasks: roles/deploy_core.yml
