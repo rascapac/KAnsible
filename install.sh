@@ -6,14 +6,6 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-# Deploy
-echo 'Configuring Mac Keyboard..'
-echo -n 'IyBLRVlCT0FSRCBDT05GSUdVUkFUSU9OIEZJTEUKCiMgQ29uc3VsdCB0aGUga2V5Ym9hcmQoNSkgbWFudWFsIHBhZ2UuCgpYS0JNT0RFTD0icGMxMDUiClhLQkxBWU9VVD0iZnIiClhLQlZBUklBTlQ9Im1hYyIKWEtCT1BUSU9OUz0ibHYzOmxhbHRfc3dpdGNoLGNvbXBvc2U6bHdpbiIKCkJBQ0tTUEFDRT0iZ3Vlc3MiCg==' | base64 -d > /etc/default/keyboard 
-
-mkdir /home/kali/.config/autostart/
-echo -n 'W0Rlc2t0b3AgRW50cnldCkVuY29kaW5nPVVURi04ClZlcnNpb249MC45LjQKVHlwZT1BcHBsaWNhdGlvbgpOYW1lPWZyCkNvbW1lbnQ9bWFjCkV4ZWM9eG1vZG1hcCAtZSAna2V5Y29kZSA5ND1hdCBudW1iZXJzaWduIFlkaWFlcmVzaXMgcGVyaW9kY2VudGVyZWQnIC1lICdrZXljb2RlIDQ5PWxlc3MgZ3JlYXRlciBWb2lkU3ltYm9sIFZvaWRTeW1ib2wnCk9ubHlTaG93SW49WEZDRTsKUnVuSG9vaz0wClN0YXJ0dXBOb3RpZnk9ZmFsc2UKVGVybWluYWw9ZmFsc2UKSGlkZGVuPWZhbHNlCg==' | base64 -d > /home/kali/.config/autostart/fr.desktop
-
-
 echo 'Install python-virtualenv and sshpass..'
 apt update
 apt install libwacom-common -y
@@ -31,6 +23,13 @@ pip install ansible
 
 echo 'Installation of the tools'
 ansible-playbook deploy_kali.yml 
+
+# Configuring MacOs FR Keyboard
+echo 'Configuring Mac Keyboard..'
+echo -n 'IyBLRVlCT0FSRCBDT05GSUdVUkFUSU9OIEZJTEUKCiMgQ29uc3VsdCB0aGUga2V5Ym9hcmQoNSkgbWFudWFsIHBhZ2UuCgpYS0JNT0RFTD0icGMxMDUiClhLQkxBWU9VVD0iZnIiClhLQlZBUklBTlQ9Im1hYyIKWEtCT1BUSU9OUz0ibHYzOmxhbHRfc3dpdGNoLGNvbXBvc2U6bHdpbiIKCkJBQ0tTUEFDRT0iZ3Vlc3MiCg==' | base64 -d > /etc/default/keyboard 
+mkdir /home/kali/.config/autostart/
+echo -n 'W0Rlc2t0b3AgRW50cnldCkVuY29kaW5nPVVURi04ClZlcnNpb249MC45LjQKVHlwZT1BcHBsaWNhdGlvbgpOYW1lPWZyCkNvbW1lbnQ9bWFjCkV4ZWM9eG1vZG1hcCAtZSAna2V5Y29kZSA5ND1hdCBudW1iZXJzaWduIFlkaWFlcmVzaXMgcGVyaW9kY2VudGVyZWQnIC1lICdrZXljb2RlIDQ5PWxlc3MgZ3JlYXRlciBWb2lkU3ltYm9sIFZvaWRTeW1ib2wnCk9ubHlTaG93SW49WEZDRTsKUnVuSG9vaz0wClN0YXJ0dXBOb3RpZnk9ZmFsc2UKVGVybWluYWw9ZmFsc2UKSGlkZGVuPWZhbHNlCg==' | base64 -d > /home/kali/.config/autostart/fr.desktop
+
 
 
 # If you are deplying it with the root user
