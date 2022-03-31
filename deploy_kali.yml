@@ -7,16 +7,9 @@
     # Install scripts are in the dir Scripts
     - import_tasks: roles/deploy_scripts.yml
     
-    # Windows Red Team tools
-    #- import_tasks: roles/deploy_win_scripts.yml
-    
-    # Extra good stuff 
-    #- import_tasks: roles/deploy_extra_scripts.yml
-    
-    # Helpful tools before pentesting engagements  
-    #- import_tasks: roles/deploy_social_engineering.yml
-    
     # Deploy bins
-    #- import_tasks: roles/deploy_bins.yml
+    - import_tasks: roles/deploy_bins.yml
+
+    # End
     - import_tasks: roles/wrap-up.yml
     

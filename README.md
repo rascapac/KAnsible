@@ -15,3 +15,4 @@ git clone https://github.com/rascapac/KAnsible.git && cd KAnsible && chmod +x in
 - Docker
 - Traitor
 
+Add what you want in `install-essentials.sh`
