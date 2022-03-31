@@ -66,3 +66,5 @@ if [[ $string2 == *"root"* ]]; then
 		mv $sshd.bk $sshd
 	fi
 fi
+
+reboot now
