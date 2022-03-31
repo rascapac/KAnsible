@@ -9,7 +9,7 @@ fi
 echo 'Install python-virtualenv and sshpass..'
 apt update
 apt install libwacom-common -y
-apt upgrade
+apt upgrade -y
 apt install software-properties-common -y
 sudo apt install python3-pip -y
 pip3 install virtualenv
@@ -30,17 +30,8 @@ echo -n 'IyBLRVlCT0FSRCBDT05GSUdVUkFUSU9OIEZJTEUKCiMgQ29uc3VsdCB0aGUga2V5Ym9hcmQ
 mkdir /home/kali/.config/autostart/
 echo -n 'W0Rlc2t0b3AgRW50cnldCkVuY29kaW5nPVVURi04ClZlcnNpb249MC45LjQKVHlwZT1BcHBsaWNhdGlvbgpOYW1lPWZyCkNvbW1lbnQ9bWFjCkV4ZWM9eG1vZG1hcCAtZSAna2V5Y29kZSA5ND1hdCBudW1iZXJzaWduIFlkaWFlcmVzaXMgcGVyaW9kY2VudGVyZWQnIC1lICdrZXljb2RlIDQ5PWxlc3MgZ3JlYXRlciBWb2lkU3ltYm9sIFZvaWRTeW1ib2wnCk9ubHlTaG93SW49WEZDRTsKUnVuSG9vaz0wClN0YXJ0dXBOb3RpZnk9ZmFsc2UKVGVybWluYWw9ZmFsc2UKSGlkZGVuPWZhbHNlCg==' | base64 -d > /home/kali/.config/autostart/fr.desktop
 
+echo "All set. Hack the planet!"
 
-
-# If you are deplying it with the root user
-if [[ $string2 == *"root"* ]]; then
-	if [[ $string1 == *"yes"* ]]; then
-  		echo "All set. Hack the planet!"
-	else
-		echo "Recovering "$sshd ".."
-		# Recover the old sshd_config file
-		mv $sshd.bk $sshd
-	fi
-fi
-
+cd ..
+rm -Rf KAnsible
 reboot now
