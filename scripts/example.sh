@@ -6,4 +6,14 @@
 #cp injectx.py /usr/bin/injectx.py
 #pip install -r requirements.txt
 
+#!/bin/bash
+
+#git clone https://github.com/liamg/traitor.git  /opt/traitor
+#cd  /opt/traitor
+#make
+#cp traitor /usr/bin/traitor
+
+
+
+
 
