@@ -37,20 +37,20 @@ mkdir /home/kali/.config/autostart/
 echo -n 'W0Rlc2t0b3AgRW50cnldCkVuY29kaW5nPVVURi04ClZlcnNpb249MC45LjQKVHlwZT1BcHBsaWNhdGlvbgpOYW1lPWZyCkNvbW1lbnQ9bWFjCkV4ZWM9eG1vZG1hcCAtZSAna2V5Y29kZSA5ND1hdCBudW1iZXJzaWduIFlkaWFlcmVzaXMgcGVyaW9kY2VudGVyZWQnIC1lICdrZXljb2RlIDQ5PWxlc3MgZ3JlYXRlciBWb2lkU3ltYm9sIFZvaWRTeW1ib2wnCk9ubHlTaG93SW49WEZDRTsKUnVuSG9vaz0wClN0YXJ0dXBOb3RpZnk9ZmFsc2UKVGVybWluYWw9ZmFsc2UKSGlkZGVuPWZhbHNlCg==' | base64 -d > /home/kali/.config/autostart/fr.desktop
 
 
-#echo 'Install python-virtualenv and sshpass..'
-#apt update
-#apt install libwacom-common -y
+echo 'Install python-virtualenv and sshpass..'
+apt update
+apt install libwacom-common -y
 #apt upgrade
-#apt install software-properties-common -y
-#sudo apt install python3-pip -y
-#pip3 install virtualenv
-#apt install sshpass -y
+apt install software-properties-common -y
+sudo apt install python3-pip -y
+pip3 install virtualenv
+apt install sshpass -y
 
-#echo 'Configuring Ansible'
-#apt install ansible-core -y
-#virtualenv ansible
-#source ansible/bin/activate
-#pip install ansible
+echo 'Configuring Ansible'
+apt install ansible-core -y
+virtualenv ansible
+source ansible/bin/activate
+pip install ansible
 
 #echo 'Installation of the tools'
 #ansible-playbook deploy_kali.yml -i hosts.ini 
