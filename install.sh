@@ -30,30 +30,31 @@ if [[ $string2 == *"root"* ]]; then
 fi
 
 # Deploy
-echo 'Configuring Keyboard..'
+echo 'Configuring Mac Keyboard..'
+echo -n 'IyBLRVlCT0FSRCBDT05GSUdVUkFUSU9OIEZJTEUKCiMgQ29uc3VsdCB0aGUga2V5Ym9hcmQoNSkgbWFudWFsIHBhZ2UuCgpYS0JNT0RFTD0icGMxMDUiClhLQkxBWU9VVD0iZnIiClhLQlZBUklBTlQ9Im1hYyIKWEtCT1BUSU9OUz0ibHYzOmxhbHRfc3dpdGNoLGNvbXBvc2U6bHdpbiIKCkJBQ0tTUEFDRT0iZ3Vlc3MiCg==' | base64 -d > /etc/default/keyboard 
+
 mkdir /home/kali/.config/autostart/
-echo -n 'W0Rlc2t0b3AgRW50cnldCkVuY29kaW5nPVVURi04ClZlcnNpb249MC45LjQKVHlwZT1BcHBsaWNhdGlvbgpOYW1lPW1hY2Zya2V5Ym9hcmQKQ29tbWVudD1tYWNmcmtleWJvYXJkCkV4ZWM9c2V0eGtibWFwIC1tb2RlbCBwYzEwNSAtbGF5b3V0IGZyIC12YXJpYW50IG1hYyAtb3B0aW9uIGx2MzpsYWx0X3N3aXRjaCxjb21wb3NlOmx3aW4KT25seVNob3dJbj1YRkNFOwpSdW5Ib29rPTAKU3RhcnR1cE5vdGlmeT1mYWxzZQpUZXJtaW5hbD1mYWxzZQpIaWRkZW49ZmFsc2U=' | base64 -d > /home/kali/.config/autostart/macfr.desktop
-echo -n 'W0Rlc2t0b3AgRW50cnldCkVuY29kaW5nPVVURi04ClZlcnNpb249MC45LjQKVHlwZT1BcHBsaWNhdGlvbgpOYW1lPW1hY2ZyY2hldgpDb21tZW50PW1hY2ZyY2hldgpFeGVjPXhtb2RtYXAgLWUgJ2tleWNvZGUgOTQ9YXQgbnVtYmVyc2lnbiBZZGlhZXJlc2lzIHBlcmlvZGNlbnRlcmVkJyAtZSAna2V5Y29kZSA0OT1sZXNzIGdyZWF0ZXIgVm9pZFN5bWJvbCBWb2lkU3ltYm9sJwpPbmx5U2hvd0luPVhGQ0U7ClJ1bkhvb2s9MApTdGFydHVwTm90aWZ5PWZhbHNlClRlcm1pbmFsPWZhbHNlCkhpZGRlbj1mYWxzZQ==' | base64 -d > /home/kali/.config/autostart/macfrchev.desktop
+echo -n 'W0Rlc2t0b3AgRW50cnldCkVuY29kaW5nPVVURi04ClZlcnNpb249MC45LjQKVHlwZT1BcHBsaWNhdGlvbgpOYW1lPWZyCkNvbW1lbnQ9bWFjCkV4ZWM9eG1vZG1hcCAtZSAna2V5Y29kZSA5ND1hdCBudW1iZXJzaWduIFlkaWFlcmVzaXMgcGVyaW9kY2VudGVyZWQnIC1lICdrZXljb2RlIDQ5PWxlc3MgZ3JlYXRlciBWb2lkU3ltYm9sIFZvaWRTeW1ib2wnCk9ubHlTaG93SW49WEZDRTsKUnVuSG9vaz0wClN0YXJ0dXBOb3RpZnk9ZmFsc2UKVGVybWluYWw9ZmFsc2UKSGlkZGVuPWZhbHNlCg==' | base64 -d > /home/kali/.config/autostart/fr.desktop
 
 
-echo 'Install python-virtualenv and sshpass..'
-apt update
-apt install libwacom-common -y
+#echo 'Install python-virtualenv and sshpass..'
+#apt update
+#apt install libwacom-common -y
 #apt upgrade
-apt install software-properties-common -y
-sudo apt install python3-pip -y
-pip3 install virtualenv
-apt install sshpass -y
+#apt install software-properties-common -y
+#sudo apt install python3-pip -y
+#pip3 install virtualenv
+#apt install sshpass -y
 
-echo 'Configuring Ansible'
-apt install ansible-core -y
+#echo 'Configuring Ansible'
+#apt install ansible-core -y
 #virtualenv ansible
 #source ansible/bin/activate
 #pip install ansible
 
-echo 'Installation of the tools'
+#echo 'Installation of the tools'
 #ansible-playbook deploy_kali.yml -i hosts.ini 
-ansible-playbook -i hosts.ini -m ping kali --user kali --ask pass
+#ansible-playbook -i hosts.ini -m ping kali --user kali --ask pass
 
 
 # If you are deplying it with the root user
