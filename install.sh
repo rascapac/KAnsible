@@ -6,29 +6,35 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-echo 'Install python-virtualenv and sshpass..'
+
+# Creating Nice folders
+mkdir -p /home/kali/{Tools,Pentest,VPN}
+mkdir -p /home/kali/Tools/{privesc,crypto,steno}
+mkdir -p /home/kali/Tools/privesc/{scanners,bin}
+
 apt update
-apt install libwacom-common -y
-apt upgrade -y
+apt upgrade -y  
+apt install kali-tools-* -y
+apt install golang-go -y
+tar -xzf /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt.tar.gz --directory /usr/share/seclists/Passwords/Leaked-Databases && rm rockyou.txt.tar.gz 
+
+echo 'Install Scripts..'
+for i in $(ls scripts); do bash $i; done
+
+echo 'Install python-virtualenv and sshpass..'
 apt install software-properties-common -y
-sudo apt install python3-pip -y
+apt install python3-pip -y
 pip3 install virtualenv
 apt install sshpass -y
 
-echo 'Configuring Ansible'
-apt install ansible-core -y
-virtualenv ansible
-source ansible/bin/activate
-pip install ansible
-
-echo 'Installation of the tools'
-ansible-playbook deploy_kali.yml 
-
-# Configuring MacOs FR Keyboard
-echo 'Configuring Mac Keyboard..'
-echo -n 'IyBLRVlCT0FSRCBDT05GSUdVUkFUSU9OIEZJTEUKCiMgQ29uc3VsdCB0aGUga2V5Ym9hcmQoNSkgbWFudWFsIHBhZ2UuCgpYS0JNT0RFTD0icGMxMDUiClhLQkxBWU9VVD0iZnIiClhLQlZBUklBTlQ9Im1hYyIKWEtCT1BUSU9OUz0ibHYzOmxhbHRfc3dpdGNoLGNvbXBvc2U6bHdpbiIKCkJBQ0tTUEFDRT0iZ3Vlc3MiCg==' | base64 -d > /etc/default/keyboard 
-mkdir /home/kali/.config/autostart/
-echo -n 'W0Rlc2t0b3AgRW50cnldCkVuY29kaW5nPVVURi04ClZlcnNpb249MC45LjQKVHlwZT1BcHBsaWNhdGlvbgpOYW1lPWZyCkNvbW1lbnQ9bWFjCkV4ZWM9eG1vZG1hcCAtZSAna2V5Y29kZSA5ND1hdCBudW1iZXJzaWduIFlkaWFlcmVzaXMgcGVyaW9kY2VudGVyZWQnIC1lICdrZXljb2RlIDQ5PWxlc3MgZ3JlYXRlciBWb2lkU3ltYm9sIFZvaWRTeW1ib2wnCk9ubHlTaG93SW49WEZDRTsKUnVuSG9vaz0wClN0YXJ0dXBOb3RpZnk9ZmFsc2UKVGVybWluYWw9ZmFsc2UKSGlkZGVuPWZhbHNlCg==' | base64 -d > /home/kali/.config/autostart/fr.desktop
+echo 'Install Python2..'
+apt install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl git
+curl https://pyenv.run | bash
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init --path)"\nfi' >> ~/.zshrc
+exec $SHELL
+pyenv install 2.7.18
 
 echo "All set. Hack the planet!"
 
