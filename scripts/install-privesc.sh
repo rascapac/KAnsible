@@ -4,7 +4,7 @@
 git clone https://github.com/liamg/traitor.git /tmp/traitor
 cd /tmp/traitor
 make
-cp traitor /home/kali/Documents/PrivEsc/tools
+cp traitor /home/kali/Tools/privesc/bin
 
 # Scanners
 curl "https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh" -o /home/kali/Tools/privesc/scanners/linpeas.sh 
