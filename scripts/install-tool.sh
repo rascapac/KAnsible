@@ -20,3 +20,8 @@ apt install bloodhound
 #exec $SHELL
 #pyenv install 2.7.18
 
+# IDA Free
+cd /tmp 
+wget https://out7.hex-rays.com/files/idafree81_linux.run 
+sudo ./idafree81_linux.run --mode unattended  --prefix /opt/ida/
+ln -s /opt/ida/ida64 /usr/bin/
