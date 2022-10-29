@@ -27,6 +27,8 @@ tar -xzf /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt.tar.gz --dir
 echo 'Install Scripts..'
 for i in $(ls scripts); do bash $i; done
 
+echo 'Configuring personal zshrc..'
+cat zshrc >> /home/kali/.zshrc 
 
 echo "All set. Hack the planet!"
 

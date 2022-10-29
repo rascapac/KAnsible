@@ -25,3 +25,6 @@ cd /tmp
 wget https://out7.hex-rays.com/files/idafree81_linux.run 
 sudo ./idafree81_linux.run --mode unattended  --prefix /opt/ida/
 ln -s /opt/ida/ida64 /usr/bin/
+
+#GRC - Colorized nmap output
+apt install grc -y
